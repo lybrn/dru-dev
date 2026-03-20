@@ -13,9 +13,10 @@ vendor/bin/drush site:install  --db-url=sqlite://sites/default/files/db.sqlite -
 
 # configure php
 vendor/bin/drush theme:dev on
-vendor/bin/drush user-password admin --password="dru-dev-admin"
+vendor/bin/drush user-password admin "dru-dev-admin"
 
 # start web server
-php -S 0.0.0.0:8080 -t web
+php -S 0.0.0.0:8080 -t web &
+ps -L | grep php
 
 
