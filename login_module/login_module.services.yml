@@ -1,0 +1,12 @@
+services:
+  mymodule.login_subscriber:
+    class: Drupal\mymodule\EventSubscriber\LoginSubscriber
+    arguments: ['@session']
+    tags:
+      - { name: event_subscriber }
+
+  mymodule.redirect_subscriber:
+    class: Drupal\mymodule\EventSubscriber\RedirectSubscriber
+    arguments: ['@session', '@current_user']
+    tags:
+      - { name: event_subscriber }
